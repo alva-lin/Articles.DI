@@ -2,21 +2,17 @@ namespace WorkerService3;
 
 public class Worker : BackgroundService
 {
-    private readonly ILogger<Worker> _logger;
+    private readonly ExampleService _exampleService;
 
 
-    public Worker(ILogger<Worker> logger)
+    // 注入了 ExampleService 的实例，但是调用了它的哪个构造函数？ 
+    public Worker(ExampleService exampleService)
     {
-        _logger = logger;
+        _exampleService = exampleService;
     }
 
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            await Task.Delay(1000, stoppingToken);
-        }
     }
 }
