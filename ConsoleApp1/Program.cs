@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using IHost host = Host.CreateDefaultBuilder(args)
    .ConfigureServices(services =>
     {
-        services.AddSingleton<OperationLogger>()
+        services.AddTransient<OperationLogger>()
            .AddTransient<ITransientOperation, DefaultOperation>()
            .AddScoped<IScopedOperation, DefaultOperation>()
            .AddSingleton<ISingletonOperation, DefaultOperation>();
