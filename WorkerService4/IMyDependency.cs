@@ -28,3 +28,11 @@ public class MyDependency3 : IMyDependency
         Console.WriteLine($"{typeof(MyDependency3)} handler...");
     }
 }
+
+public class MyDependency4 : IMyDependency
+{
+    public void Handler()
+    {
+        Console.WriteLine($"{typeof(MyDependency4)} handler...");
+    }
+}
